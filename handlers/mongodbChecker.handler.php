@@ -1,6 +1,7 @@
 <?php
+require __DIR__ . '/../utils/envSetter.util.php';
 try {
-    $mongo = new MongoDB\Driver\Manager("mongodb://mongodb:27017");
+    $mongo = new MongoDB\Driver\Manager($mongoConfig['uri']);
 
     $command = new MongoDB\Driver\Command(["ping" => 1]);
     $mongo->executeCommand("admin", $command);

@@ -1,5 +1,7 @@
 services:
   ad-meeting-calendar:
+    volumes:
+      - ./.env:/var/www/html/.env
     build:
       context: .
     container_name: ad-meeting-calendar-service
@@ -16,6 +18,8 @@ services:
           action: rebuild
     depends_on:
       - mongodb
+    env_file:
+      - .env
 
   mongodb:
     image: mongo:latest
