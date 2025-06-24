@@ -5,7 +5,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/domadla/">
-    <img src="./assets/img/nyebe_white.png" alt="Nyebe" width="130" height="100">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0mMQYqmTePyBq-zm2CVxt2oK8KVUVLHv7nQ&s" alt="Calendar" width="130" height="100">
   </a>
   <h3 align="center">AD-Meeting-Calendar</h3>
 </div>
@@ -145,5 +145,6 @@ AD-ProjectName
 
 ## Resources
 
-| Title | Purpose | Link |
-| ----- | ------- | ---- |
+| Title         | Purpose | Link                          |
+| ------------- | ------- | ----------------------------- |
+| Calendar Icon | Logo    | https://www.freepik.com/icons |
