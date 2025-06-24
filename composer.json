@@ -8,7 +8,9 @@
         }
     ],
     "scripts": {
-        "start": "php -S localhost:8000 router.php"
+        "start": "php -S localhost:8000 router.php",
+        "postgresql:reset": "docker compose exec ad-meeting-calendar php utils/dbResetPostgresql.util.php"
+
     },
     "require": {
         "vlucas/phpdotenv": "^5.6"
