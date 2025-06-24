@@ -55,13 +55,8 @@ Meeting Calendar is an online scheduling tool that helps users efficiently plan 
 
 ### Key Components
 
-- Web-Based Interface
-- Responsive Calendar View
-- Event Creation
-- Event Editing
-- Event Deletion
-- Interactive Features
-- Efficient Organization
+- PostgreSQL and MongoDB database utilization
+- Dockerized development environment
 
 ### Technology
 
