@@ -36,39 +36,21 @@ foreach ($schemaFiles as $file) {
     }
     $pdo->exec($sql);
 }
-// Load dummy data
+
+// --- Load and seed users dummy data ---
 $users = require DUMMIES_PATH . '/users.staticData.php';
 
-// ...existing code for connecting to PostgreSQL...
-
-// Apply schema (repeat for each table as needed)
-echo "Applying schema from database/users.model.sql…\n";
-$sql = file_get_contents('database/users.model.sql');
-if ($sql === false) {
-    throw new RuntimeException("Could not read database/users.model.sql");
-} else {
-    echo "Creation Success from the database/users.model.sql\n";
-}
-$pdo->exec($sql);
-
-// Truncate tables before seeding
-echo "Truncating tables…\n";
-foreach (['users'] as $table) {
-    $pdo->exec("TRUNCATE TABLE {$table} RESTART IDENTITY CASCADE;");
-}
-
-// Seeding logic
 echo "Seeding users…\n";
 $stmt = $pdo->prepare("
-    INSERT INTO users (username, role, first_name, last_name, password)
-    VALUES (:username, :role, :fn, :ln, :pw)
+    INSERT INTO users (username, lastname, firstname, role, password)
+    VALUES (:username, :ln, :fn, :role, :pw)
 ");
 foreach ($users as $u) {
     $stmt->execute([
         ':username' => $u['username'],
+        ':ln' => $u['lastname'],
+        ':fn' => $u['firstname'],
         ':role' => $u['role'],
-        ':fn' => $u['first_name'],
-        ':ln' => $u['last_name'],
         ':pw' => password_hash($u['password'], PASSWORD_DEFAULT),
     ]);
 }
