@@ -1,10 +1,11 @@
-CREATE TABLE IF NOT EXISTS Tasks (
-    id SERIAL PRIMARY KEY,
-    meeting_id INT,
+CREATE TABLE IF NOT EXISTS tasks (
+    id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    meeting_id INTEGER NOT NULL REFERENCES meetings(id),
+    assigned_to INTEGER REFERENCES users(id),
     title VARCHAR(255) NOT NULL,
     description TEXT,
-    due_date TIMESTAMP,
-    status VARCHAR(20) CHECK (status IN ('pending', 'in_progress', 'completed')) DEFAULT 'pending',
+    status VARCHAR(255) DEFAULT 'pending',
+    due_date DATE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (meeting_id) REFERENCES Meetings(id) ON DELETE CASCADE
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
