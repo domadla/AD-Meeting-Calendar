@@ -1,18 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <title>Success</title>
-</head>
+require_once __DIR__ . '/../../bootstrap.php';
+require_once UTILS_PATH . 'auth.util.php';
 
-<body>
-    <h1>Login Successful</h1>
-    <form action="/handlers/auth.handler.php?action=logout" method="POST">
-        <button type="submit">Logout</button>
-    </form>
-</body>
+$pageTitle = 'Login Successful';
 
-</html>
+ob_start();
+?>
+
+<h2>Login Successful</h2>
+<p>Welcome to the Meeting Calendar system.</p>
+
+<form action="/handlers/auth.handler.php?action=logout" method="POST">
+    <button type="submit" class="logout-button">Logout</button>
+</form>
+
+<?php
+$content = ob_get_clean();
+include LAYOUTS_PATH . 'main.layout.php';
