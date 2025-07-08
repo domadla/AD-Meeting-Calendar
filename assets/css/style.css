@@ -45,6 +45,7 @@ body {
   font-size: 1rem;
   margin: 0.5rem 0;
   transition: background 0.2s;
+  margin-left: 1rem;
 }
 .button:hover {
   background: #1a4fa0;
@@ -81,6 +82,8 @@ body {
   border: 1px solid #f5a4a4;
   border-radius: 4px;
   margin-top: 1rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
 }
 
 .nav {

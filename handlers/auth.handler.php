@@ -1,6 +1,10 @@
 <?php
 
 declare(strict_types=1);
+
+// Prevent accidental output
+ob_start();
+
 require_once BASE_PATH . '/bootstrap.php';
 require_once VENDOR_PATH . 'autoload.php';
 require_once UTILS_PATH . 'auth.util.php';
@@ -12,7 +16,7 @@ $host = 'host.docker.internal';
 $port = $pgConfig['port'];
 $user = $pgConfig['user'];
 $pass = $pgConfig['pass'];
-$db = $pgConfig['db'];
+$db   = $pgConfig['db'];
 
 $dsn = "pgsql:host={$host};port={$port};dbname={$db}";
 $pdo = new PDO($dsn, $user, $pass, [
@@ -28,11 +32,11 @@ if ($action === 'login' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     if (Auth::login($pdo, $usernameInput, $passwordInput)) {
         $user = Auth::user();
         error_log("[auth.handler.php] Login successful for user_id={$user['id']}");
-        header('Location: /pages/login/index.php'); // Redirect to dashboard or another page
+        header('Location: /pages/login/index.php'); // Success page
         exit;
     } else {
         error_log("[auth.handler.php] Login failed for username='{$usernameInput}'");
-        header('Location: /index.php?error=Invalid%20Credentials');
+        header('Location: /errors/invalidCredentials.error.php'); // Better error page
         exit;
     }
 } elseif ($action === 'logout') {
@@ -41,3 +45,5 @@ if ($action === 'login' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Location: /index.php');
     exit;
 }
+
+ob_end_clean();
