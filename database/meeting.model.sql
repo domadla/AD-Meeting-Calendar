@@ -1,10 +1,8 @@
-
 CREATE TABLE IF NOT EXISTS meetings (
     id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     description TEXT,
     schedule TIMESTAMP NOT NULL,
     location VARCHAR(255),
-    created_by INTEGER NOT NULL REFERENCES users(id),
-
+    created_by INTEGER NOT NULL REFERENCES users(id)
 );
