@@ -6,7 +6,8 @@ return [
         'title'        => 'Prepare Project Plan',
         'description'  => 'Draft the initial project plan and timeline.',
         'status'       => 'pending',
-        'due_date'     => '2024-12-12',
+        'due_date'     => '2025-12-12',
         'created_at'   => '2025-01-01 10:00:00',
+        'updated_at'   => '2025-10-10 10:00:00',
     ],
 ];
