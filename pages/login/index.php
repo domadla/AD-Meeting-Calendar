@@ -18,3 +18,4 @@ ob_start();
 <?php
 $content = ob_get_clean();
 include LAYOUTS_PATH . 'main.layout.php';
+include COMPONENTS_PATH . '/componentGroup/footer.component.php';

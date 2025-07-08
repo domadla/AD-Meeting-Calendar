@@ -12,6 +12,7 @@ require_once 'bootstrap.php';
 $error = trim((string) ($_GET['error'] ?? ''));
 $error = str_replace("%", " ", $error);
 
+include COMPONENTS_PATH . '/componentGroup/footer.component.php';
 
 ?>
 <!DOCTYPE html>
@@ -44,7 +45,7 @@ $error = str_replace("%", " ", $error);
         </form>
     </div>
 
-    <div class="footer">© <?= date('Y') ?> Meeting Calendar</div>
+
 </body>
 
 </html>
