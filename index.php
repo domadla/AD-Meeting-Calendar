@@ -20,25 +20,31 @@ $error = str_replace("%", " ", $error);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meeting Calendar Veluz</title>
+    <title>Meeting Calendar</title>
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
-    <form action="/handlers/auth.handler.php" method="POST">
-        <label for="username" class="label">Username</label>
-        <input id="username" name="username" type="text" required class="input">
+    <div class="header">Meeting Calendar</div>
 
-        <label for="password" class="label">Password</label>
-        <input id="password" name="password" type="password" required class="input">
+    <div class="form-box">
+        <form action="/handlers/auth.handler.php" method="POST">
+            <label for="username" class="label">Username</label>
+            <input id="username" name="username" type="text" required class="input">
 
-        <input type="hidden" name="action" value="login">
-        <button type="submit" class="button">Log In</button>
+            <label for="password" class="label">Password</label>
+            <input id="password" name="password" type="password" required class="input">
 
-        <?php if (!empty($error)): ?>
-            <div class="error"><?= htmlspecialchars($error) ?></div>
-        <?php endif; ?>
-    </form>
+            <input type="hidden" name="action" value="login">
+            <button type="submit" class="button">Log In</button>
+
+            <?php if (!empty($error)): ?>
+                <div class="error"><?= htmlspecialchars($error) ?></div>
+            <?php endif; ?>
+        </form>
+    </div>
+
+    <div class="footer">© <?= date('Y') ?> Meeting Calendar</div>
 </body>
 
 </html>

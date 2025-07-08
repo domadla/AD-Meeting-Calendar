@@ -49,3 +49,36 @@ body {
 .button:hover {
   background: #1a4fa0;
 }
+
+.form-box {
+  max-width: 400px;
+  margin: 5rem auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+}
+
+.input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.error {
+  background: #ffd5d5;
+  color: #a00;
+  padding: 0.5rem;
+  border: 1px solid #f5a4a4;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
